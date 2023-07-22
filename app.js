@@ -82,3 +82,29 @@ const menu = [
   },
 ];
 
+
+let list=["All"];
+let selectFilter=list[0];
+menu.forEach((value,index) => {
+
+if(!list.includes(value.category)){
+  list.push(value.category)
+}
+
+})
+
+list.forEach((value)=>{
+ let html=`<button class="btn-item">${value}</button> `;
+  document.querySelector("#btn-filter").insertAdjacentHTML("beforeend",html);
+})
+
+
+
+const listProducts=function () {
+  
+}
+
+
+
+
+
