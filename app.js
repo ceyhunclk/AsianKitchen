@@ -99,10 +99,49 @@ list.forEach((value)=>{
 })
 
 
-
-const listProducts=function () {
-  
+document.querySelector(".btn-container").addEventListener("click",function (event) {
+if(event.target.classList.contains("btn-item"))
+{
+listProducts(event.target.textContent);
 }
+
+})
+
+
+const listProducts=function (category) {
+  document.querySelector(".section-center").innerHTML="";
+  menu.forEach((val)=>{
+
+
+
+    let html=`<div class="menu-items col-lg-6 col-sm-12">
+            <img src="${val.img}" alt="${val.title}" class="photo">
+            <div class="menu-info">
+              <div class="menu-title">
+                <h4>${val.title}</h4>
+                <h4 class="price">${val.price}</h4>
+              </div>
+              <div class="menu-text">
+                ${val.desc}
+              </div>
+            </div>
+          </div>`;
+    if(category=="All")
+    {
+      document.querySelector(".section-center").insertAdjacentHTML("beforeend",html)
+    }
+    else
+    {
+      if(val.category==category){
+        document.querySelector(".section-center").insertAdjacentHTML("beforeend",html)
+      }
+    }
+
+
+  })
+
+}
+listProducts("All");
 
 
 
